@@ -1,0 +1,47 @@
+<div class="relative isolate z-50 shadow">
+    <div class="bg-white py-5">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <button onclick="changeShowSubmenu()" type="button"
+                    class="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
+                    aria-expanded="false">
+                Страницы сайта
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clip-rule="evenodd"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="submenu" class="absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
+            <div class="grid grid-cols-3 gap-x-6 sm:gap-x-8">
+                {% for menu_item in menu %}
+                    {% include 'main/components/submenu-item.html' with menu_item=menu_item %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let isShowSubmenu = false;
+
+    function refreshSubmenu() {
+        const submenu = document.getElementById('submenu');
+        if (isShowSubmenu) {
+            submenu.classList.remove('hidden');
+        } else {
+            submenu.classList.add('hidden')
+        }
+    }
+
+    function changeShowSubmenu() {
+        isShowSubmenu = !isShowSubmenu;
+        refreshSubmenu()
+    }
+
+    refreshSubmenu()
+
+</script>

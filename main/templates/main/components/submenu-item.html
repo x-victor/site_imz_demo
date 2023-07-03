@@ -1,0 +1,19 @@
+<div>
+    <h3 class="text-sm font-medium leading-6 text-gray-500">{{ menu_item }}</h3>
+    <div class="mt-6 flow-root">
+        <div class="-my-2">
+            {% for submenu_item in menu_item.children.all %}
+                {% if submenu_item.page %}
+                    <a href="{{ submenu_item.page.get_absolute_url }}"
+                       class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
+                        {{ submenu_item.name }}
+                    </a>
+                {% else %}
+                    <div class="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900">
+                        {{ submenu_item.name }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

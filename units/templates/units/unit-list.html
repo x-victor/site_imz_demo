@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Структура института мерзлотоведения
+{% endblock %}
+
+{% block content %}
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="border-b border-gray-200 pb-5">
+            <h3 class="text-3xl font-semibold leading-6 text-gray-900">Структура института</h3>
+        </div>
+        {% for unit in units %}
+            <div class="">
+                <a href="{% url 'units-detail' unit.slug %}"
+                   class="text-lg font-bold tracking-tight sm:text-1xl text-blue-400">{{ unit.name }}</a>
+                <div class="px-4">
+                    {% for under_unit in unit.under_units.all %}
+                        <div class="">
+                            - <a href="{% url 'units-detail' under_unit.slug %}"
+                                 class="text-md font-bold tracking-tight sm:text-lg text-blue-400">{{ under_unit.name }}</-a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

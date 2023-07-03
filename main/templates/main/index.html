@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Сайт института мерзлотоведения
+{% endblock %}
+{% block content %}
+    {% include 'main/components/submenu.html' with menu=menu %}
+    {% include 'components/banner.html' %}
+    {% include 'main/components/header-section.html' %}
+    {% include 'main/components/blog-posts.html' with posts=posts %}
+    {% include 'main/components/announcements.html' with announcements=announcements %}
+    {% include 'main/components/articles.html' with artciles=articles %}
+{% endblock %}

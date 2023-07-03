@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Объявления института мерзлотоведения
+{% endblock %}
+
+{% block content %}
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="border-b border-gray-200 pb-5">
+            <h3 class="text-3xl font-semibold leading-6 text-gray-900">Объявления</h3>
+        </div>
+        {% for announcement in page_obj %}
+            {% include 'announcements/components/announcement-card.html' with announcement=announcement %}
+        {% endfor %}
+        {% include 'components/navigation.html' %}
+    </div>
+
+{% endblock %}

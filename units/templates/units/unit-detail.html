@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ unit.name }} | Институт мерзлотоведения
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white px-6 py-12 lg:px-8">
+        <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+            {% if unit.parent %}
+                <h1 class="text-xl font-bold text-gray-900">Родительское подразделение -
+                    <a href="{% url 'units-detail' unit.parent.slug %}"
+                       class="text-lg font-bold tracking-tight sm:text-1xl text-blue-400">{{ unit.parent }}</a>
+                </h1>
+            {% endif %}
+            {% if unit.under_units.exists %}
+                <h1 class="text-xl font-bold text-gray-900">Внутренние подразделения</h1>
+                <div class="px-4">
+                    {% for under_unit in unit.under_units.all %}
+                        <div class="">
+                            - <a href="{% url 'units-detail' under_unit.slug %}"
+                                 class="text-md font-bold tracking-tight sm:text-lg text-blue-400">{{ under_unit.name }}</-a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ unit.name }}</h1>
+            <div class="prose">
+                {{ unit.description|safe }}
+            </div>
+            {% if unit.members.exists %}
+                {% include 'units/components/team.html' with members=unit.members.all %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

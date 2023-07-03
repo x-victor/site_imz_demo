@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Новости института мерзлотоведения
+{% endblock %}
+
+{% block content %}
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="border-b border-gray-200 pb-5">
+            <h3 class="text-3xl font-semibold leading-6 text-gray-900">Новости</h3>
+        </div>
+        <div class="py-8">
+            <div class="py-4">Выберите категорию</div>
+            {% for tag in tags %}
+                <a href="{% url 'blog-home' %}?tag={{ tag.name }}"
+                   class="p-2 rounded border
+                   {% if tag.name == selected_tag %}
+                   bg-indigo-400 text-white hover:bg-indigo-200 hover:text-black
+                   {% else %}
+                   bg-indigo-200 text-black hover:bg-indigo-400 hover:text-white
+                   {% endif %}
+            ">{{ tag.name }}</a>
+            {% endfor %}
+            <a href="{% url 'blog-home' %}"
+               class="p-2 rounded border
+                   bg-indigo-200 text-black hover:bg-indigo-400 hover:text-white
+            ">Все</a>
+        </div>
+
+
+        {% for post in page_obj %}
+            {% include 'blog/components/post-card.html' with post=post %}
+        {% endfor %}
+        {% include 'components/navigation.html' %}
+    </div>
+
+{% endblock %}

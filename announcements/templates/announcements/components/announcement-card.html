@@ -1,0 +1,16 @@
+<article class="flex max-w-xl flex-col items-start justify-between shadow-lg rounded-lg p-2">
+    <div class="flex items-center gap-x-4 text-xs">
+        <time datetime="2020-03-16" class="text-gray-500">{{ post.created_at }}</time>
+    </div>
+    <div class="group relative">
+        <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="{% url 'announcements-detail' announcement.uuid %}">
+                <span class="absolute inset-0"></span>
+                {{ announcement.title }}
+            </a>
+        </h3>
+        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+            {{ announcement.short_description }}
+        </p>
+    </div>
+</article>
