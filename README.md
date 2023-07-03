@@ -9,8 +9,6 @@
   </p>
 </p>
 
-
-
 ## About The Project
 
 Этот проект был создан как пример сайтов научных институтов
@@ -24,16 +22,18 @@
 * Хранить информацию в соответствии с правилами для научных организаций
 
 ## Ближайшие цели
+
 - [ ] Добавить линтеры, форматеры
 - [ ] Добавить автотесты
 - [ ] Добавить Dockerfile и docker-compose.dev для окружения
 - [ ] Добавить PostgreSQL и Redis
 - [ ] Добавить регистрацию сотрудников и прикрепление их профилей к учетным записям
 - [ ] Добавить CI/CD
+- [ ] Добавить S3 хранилище
 
 ## Built With
 
-Сайт сделан на Python Django 
+Сайт сделан на Python Django
 
 ## Getting Started
 
@@ -48,6 +48,7 @@ To get a local copy up and running follow these simple example steps.
 * git
 
 Протестировано на ubuntu 22.04
+
 ```sh
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt update
@@ -79,6 +80,7 @@ pip install -r requirements
 ```
 
 5. Напишите .env файл в папке проекта, пример:
+
 ```sh
 SECRET_KEY=super-secret-key
 DEBUG=True
@@ -98,12 +100,18 @@ python manage.py runserver
 
 ## Roadmap
 
-See the [open issues](https://github.com/x-victor/imz_site_demo/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/x-victor/imz_site_demo/issues) for a list of proposed features (and known
+issues).
 
 ## Contributing
 
-Помощь - это то, что делает сообщество с открытым исходным кодом таким удивительным местом, где можно учиться, вдохновлять и творить. Мы ** высоко ценим любой ваш вклад **.
-* Если у вас есть предложения по добавлению или удалению проектов, не стесняйтесь [открыть проблему](https://github.com/x-victor/imz_site_demo/issues/new ), чтобы обсудить это, или непосредственно создать запрос на извлечение после того, как вы отредактируете *README.md * файл с необходимыми изменениями.
+Помощь - это то, что делает сообщество с открытым исходным кодом таким удивительным местом, где можно учиться,
+вдохновлять и творить. Мы ** высоко ценим любой ваш вклад **.
+
+* Если у вас есть предложения по добавлению или удалению проектов, не
+  стесняйтесь [открыть проблему](https://github.com/x-victor/imz_site_demo/issues/new ), чтобы обсудить это, или
+  непосредственно создать запрос на извлечение после того, как вы отредактируете *README.md * файл с необходимыми
+  изменениями.
 * Пожалуйста, обязательно проверьте свою орфографию и грамматику.
 * Создайте индивидуальный PR для каждого предложения.
 
@@ -117,7 +125,8 @@ See the [open issues](https://github.com/x-victor/imz_site_demo/issues) for a li
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/x-victor/imz_site_demo/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/x-victor/imz_site_demo/blob/main/LICENSE.md) for
+more information.
 
 ## Authors
 

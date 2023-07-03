@@ -10,8 +10,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-DEBUG = env('DEBUG')
-SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG', default=False)
+SECRET_KEY = env('SECRET_KEY', default='super-secret-key')
 
 ALLOWED_HOSTS = ['*']
 
@@ -103,8 +103,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = env('STATIC_ROOT', default=BASE_DIR / 'staticroot')
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = env('MEDIA_ROOT', default=BASE_DIR / 'media')
+
+CSRF_TRUSTED_ORIGINS = [
+    env('CSRF_TRUSTED_ORIGINS', default='http://localhost:8000'),
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
